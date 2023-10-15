@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="./images/logo.png" class="logo">
+            <div  class="user">
+                <button type="button">Explore</button>
+                <img src="./images/user.png">
+            </div>
+        </div>
+        <div class="container">
+            <di
+            v class="info">
+                <h1>DISCOVER</h1>
+                <P>When you're creating a presentation, whether you're presenting live in front of an<br>audience or embedding it on a webpage for visitors to access on their own time,<br>you want it to be engaging.</P>
+                <input type="text" placeholder="Search">
+
+            </div>
+
+        </div>
+        <div class="slider">
+            <img src="./images/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="./images/small1.png" class="active thumbnail">
+                <img src="./images/small2.png" class="thumbnail">
+                <img src="./images/small3.png" class="thumbnail">
+                <img src="./images/small4.png" class="thumbnail">
+                <img src="./images/small5.png" class="thumbnail">
+            </div>
+            <img src="./images/right-arrow.png" id="next">
+        </div>
+    </div>
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "style/bg1.png",
+            "style/bg2.png",
+            "style/bg3.png",
+            "style/bg4.png",
+            "style/bg5.png",
+        );
+        let i = 0;
+        next.onclick = function(){
+            if(i<4){
+            hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+            thumbnail[i+1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i++;
+            }
+       }
+       prev.onclick = function(){
+        if(i>0){
+            hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+            thumbnail[i-1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i--;
+        }
+       }
+
+
+
+    </script>
+</body>
+</html>
